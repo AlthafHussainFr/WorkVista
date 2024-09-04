@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <style>
+          @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+/* //........top text ........// */
+
+:root {
+    /* //....... Color ........// */
+    --primary-color: rgb(7, 96, 128);
+    --light-black: rgba(0, 0, 0, 0.89);
+    --black: #000;
+    --white: #fff;
+    --grey: #aaa;
+}
+
+
+/* //........top text ........// */
+
+.top-txt {
+    background-color: var(--black);
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.945);
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.head a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.945);
+    margin: 0 10px;
+}
+
+
+/* //........ Navbar ........// */
+
+.navbar input[type="checkbox"],
+.navbar .hamburger-lines {
+    display: none;
+}
+
+.navbar {
+    box-shadow: 0 5px 4px rgb(146 161 176 / 15%);
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    color: var(--black);
+    z-index: 100;
+    display: flex;
+    justify-content: center; /* Centers the child elements horizontally */
+    align-items: center;    /* Centers the child elements vertically */
+}
+
+.menu-items {
+    display: flex;
+    margin-right: 3rem; /* Remove this line if you want perfect centering */
+    font-size: xx-small;
+}
+
+.menu-items li {
+    list-style: none;
+    margin-left: 1.5rem;
+    font-size: 5px;
+}
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+}
+
+.navbar img {
+    margin-left: 3rem;
+}
+
+
+
+.navbar-container ul a {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 18px;
+    position: relative;
+}
+
+.navbar-container ul a:after {
+    content: "";
+    position: absolute;
+    background: var(--primary-color);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+.navbar-container ul a:hover:after {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        opacity: 0.95;
+    }
+    .navbar-container input[type="checkbox"],
+    .navbar-container .hamburger-lines {
+        display: block;
+    }
+    .navbar-container {
+        display: block;
+        position: relative;
+        height: 64px;
+    }
+    .navbar-container input[type="checkbox"] {
+        position: absolute;
+        display: block;
+        height: 32px;
+        width: 30px;
+        top: 20px;
+        left: 20px;
+        z-index: 5;
+        opacity: 0;
+        cursor: pointer;
+    }
+    .navbar-container .hamburger-lines {
+        display: block;
+        height: 28px;
+        width: 35px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .navbar-container .hamburger-lines .line {
+        display: block;
+        height: 4px;
+        width: 100%;
+        border-radius: 10px;
+        background: #333;
+    }
+    .navbar-container .hamburger-lines .line1 {
+        transform-origin: 0% 0%;
+        transition: transform 0.3s ease-in-out;
+    }
+    .navbar-container .hamburger-lines .line2 {
+        transition: transform 0.2s ease-in-out;
+    }
+    .navbar-container .hamburger-lines .line3 {
+        transform-origin: 0% 100%;
+        transition: transform 0.3s ease-in-out;
+    }
+    .navbar .menu-items {
+        padding-top: 100px;
+        background: #fff;
+        height: 100vh;
+        max-width: 100%;
+        transform: translate(-150%);
+        display: flex;
+        flex-direction: column;
+        /* margin-left: -40px;
+        padding-left: 40px; */
+        text-align: center;
+        transition: transform 0.5s ease-in-out;
+        /* box-shadow: 5px 0px 10px 0px #aaa; */
+        overflow: scroll;
+    }
+    .navbar .menu-items li {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+    .menu-items li,
+    .navbar img {
+        margin: 0;
+    }
+    .navbar .menu-items li:nth-child(1) {
+        margin-top: 1.5rem;
+    }
+    .navbar-container .logo img {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        margin-top: 8px;
+    }
+    .navbar-container input[type="checkbox"]:checked~.menu-items {
+        transform: translateX(0);
+    }
+    .navbar-container input[type="checkbox"]:checked~.hamburger-lines .line1 {
+        transform: rotate(45deg);
+    }
+    .navbar-container input[type="checkbox"]:checked~.hamburger-lines .line2 {
+        transform: scaleY(0);
+    }
+    .navbar-container input[type="checkbox"]:checked~.hamburger-lines .line3 {
+        transform: rotate(-45deg);
+    }
+    .navbar-container input[type="checkbox"]:checked~.home_page img {
+        display: none;
+        background: #fff;
+    }
+}
+.logo {
+    color: rgb(7, 96, 128);
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;  /* Optional: Adds some margin from the edges */
+}
+
+.Login {
+    background-color:  rgb(7, 96, 128);
+    color: rgb(255, 255, 255);
+    padding: 6px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 6px;
+    margin-right: 3px;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;  /* Optional: Adds some margin from the edges */
+    text-decoration: none;
+}
+.Login:hover {
+    background-color: black;
+}
+
+
+
+.l-news2 .news2-conte .date-news2 p {
+    color: var(--light-black);
+    text-align: center;
+    padding: 15px 0;
+}
+
+.l-news2 .news2-conte .date-news2 h4 {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+    padding-bottom: 15px;
+}
+
+.l-news2 .news2-conte .date-news2 a {
+    text-decoration: none;
+    text-align: center;
+    padding: 0 60px;
+    color: var(--primary-color);
+    position: relative;
+    font-weight: 600;
+}
+
+.l-news2 .news2-conte .date-news2 a::after {
+    content: "";
+    position: absolute;
+    background: #ff3c78;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+.l-news2 .news2-conte .date-news2 a:hover:after {
+    width: 0%;
+}
+
+.l-news2 .news2-conte .date-news2 a:hover {
+    color: var(--black);
+}
+
+.l-news3 .news3-conte .date-news3 p {
+    color: var(--light-black);
+    text-align: center;
+    padding: 15px 0;
+}
+
+.l-news3 .news3-conte .date-news3 h4 {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+    padding-bottom: 15px;
+}
+
+.l-news3 .news3-conte .date-news3 a {
+    text-decoration: none;
+    text-align: center;
+    padding: 0 60px;
+    color: var(--primary-color);
+    position: relative;
+    font-weight: 600;
+}
+
+.l-news3 .news3-conte .date-news3 a::after {
+    content: "";
+    position: absolute;
+    background: #ff3c78;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+.l-news3 .news3-conte .date-news3 a:hover:after {
+    width: 0%;
+}
+
+.l-news3 .news3-conte .date-news3 a:hover {
+    color: var(--black);
+}
+
+
+/* //........ Footer ...... // */
+
+footer {
+    width: 100%;
+    background:  rgb(7, 96, 128);
+}
+
+.footer-container .content_1 img {
+    height: 25px;
+    width: 180px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0;
+}
+
+.footer-container h4 {
+    color: var(--white);
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.footer-container a {
+    display: block;
+    text-decoration: none;
+    color: rgb(233, 233, 233);
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.footer-container .content_1 p,
+.footer-container .content_4 p {
+    color: var(--grey);
+    margin: 25px 0;
+    font-size: 14px;
+}
+
+.footer-container .content_4 input[type="email"] {
+    background-color:rgb(7, 96, 128);
+    border: none;
+    color: black;
+    outline: none;
+    padding: 15px 0;
+}
+
+.footer-container .content_4 .f-mail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-container .content_4 .bx {
+    color: var(--white);
+}
+
+.f-design {
+    width: 100%;
+    color: var(--white);
+    text-align: center;
+}
+
+.f-design .f-design-txt {
+    border-top: 1px solid var(--grey);
+    padding: 25px 0;
+    font-size: 14px;
+    color: var(--grey);
+}
+
+
+/* //........ contact ...... // */
+
+.contact {
+    margin-top: 45px;
+}
+
+iframe {
+    height: 72vh;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    margin: 80px 0;
+}
+
+.form .form-txt {
+    flex-basis: 48%;
+}
+
+.form .form-txt h4 {
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.form .form-txt h1 {
+    font-weight: 600;
+    color: var(--black);
+    font-size: 40px;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    color: var(--light-black);
+}
+
+.form .form-txt span {
+    color: var(--light-black);
+    font-size: 14px;
+}
+
+.form .form-txt h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 15px 0;
+    color: var(--light-black);
+}
+
+.form .form-txt p {
+    color: var(--light-black);
+    font-size: 14px;
+}
+
+.form .form-details {
+    flex-basis: 48%;
+}
+
+.form .form-details input[type="text"],
+.form .form-details input[type="email"] {
+    padding: 15px 20px;
+    color: var(--grey);
+    outline: none;
+    border: 1px solid var(--grey);
+    margin: 35px 15px;
+    font-size: 14px;
+}
+
+.form .form-details textarea {
+    padding: 15px 20px;
+    margin: 0 15px;
+    color: var(--grey);
+    outline: none;
+    border: 1px solid var(--grey);
+    font-size: 14px;
+    resize: none;
+}
+
+.form .form-details button {
+    padding: 15px 25px;
+    color: var(--white);
+    font-weight: 500;
+    background: var(--black);
+    outline: none;
+    border: none;
+    margin: 15px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+
+/* //....... Media Queries .......// */
+
+@media (max-width: 500px) {
+    .head {
+        display: none;
+    }
+    .top-txt .head p,
+    .top-txt .head a {
+        font-size: 10px;
+    }
+    .home_txt h2,
+    .home_txt .home_label p {
+        display: none;
+    }
+    .home_txt {
+        position: absolute;
+        top: 20%;
+        left: 5%;
+        font-size: 12px;
+    }
+    .home_txt button {
+        padding: 7px 7px;
+        font-size: 10px;
+    }
+    .home_txt i {
+        display: none;
+    }
+    .home_txt .home_social_icons {
+        /* display: flex; */
+        display: none;
+    }
+    .menu-items {
+        margin-right: 0;
+    }
+    .best-seller {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .l-news {
+        display: flex;
+        flex-direction: column;
+        margin-right: 30px;
+    }
+    .l-news .l-news1,
+    .l-news .l-news2 {
+        margin-bottom: 200px;
+    }
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-container .content_1 {
+        margin-bottom: 30px;
+    }
+    .best-seller img {
+        padding-top: 40px;
+    }
+}
+
+@media(min-width: 501px) and (max-width: 768px) {
+    .head {
+        display: none;
+    }
+    .top-txt .head p,
+    .top-txt .head a {
+        font-size: 10px;
+    }
+    .home_txt h2,
+    .home_txt .home_label p {
+        display: none;
+    }
+    .home_txt {
+        position: absolute;
+        top: 20%;
+        left: 5%;
+        font-size: 12px;
+    }
+    .home_txt button {
+        padding: 7px 7px;
+        font-size: 10px;
+    }
+    .home_txt i {
+        display: none;
+    }
+    .home_txt .home_social_icons {
+        /* display: flex; */
+        display: none;
+    }
+    .menu-items {
+        margin-right: 0;
+    }
+    .best-seller {
+        display: flex;
+        flex-direction: column;
+    }
+    .l-news {
+        display: flex;
+        flex-direction: column;
+        margin-right: 30px;
+    }
+    .l-news .l-news1,
+    .l-news .l-news2 {
+        margin-bottom: 200px;
+    }
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-container .content_1 {
+        margin-bottom: 30px;
+    }
+    .best-seller img {
+        padding-top: 40px;
+    }
+}
+
+@media(orientation: landscape) and (max-height: 500px) {
+    .header {
+        height: 90vmax;
+    }
+}
+
+
+/* //....... Media Queries For Contact .......// */
+
+@media (max-width: 500px) {
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+    .form .form-details button {
+        margin-left: 0;
+    }
+    .form .form-details input[type="text"],
+    .form .form-details input[type="email"],
+    .form .form-details textarea {
+        width: 100%;
+        margin-left: 0;
+    }
+    .form .form-details input[type="text"] {
+        margin-bottom: 0px;
+    }
+}
+
+@media(min-width: 501px) and (max-width: 768px) {
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+    .form .form-details button {
+        margin-left: 0;
+    }
+    .form .form-details input[type="text"],
+    .form .form-details input[type="email"],
+    .form .form-details textarea {
+        width: 100%;
+        margin-left: 0;
+    }
+    .form .form-details input[type="text"] {
+        margin-bottom: 0px;
+    }
+}
+.section-title h2 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 6px;
+    color: #000;
+    letter-spacing: 0.3px;
+    padding: 0;
+    margin: 0;
+}
+.section-title::after {
+    content: "";
+    height: 3px;
+    background: #fbb900;
+    width: 80px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+section.client {
+    padding: 4em 0em;
+    background-color: #eee;
+}
+section.client .section-title {
+    margin-bottom: 6em;
+}
+.bx-controls {
+    position: relative;
+}
+.bx-wrapper .bx-pager {
+    text-align: center;
+    padding-top: 30px;
+}
+.bx-wrapper .bx-pager .bx-pager-item, .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+    display: inline-block;
+    zoom: 1;
+    display: inline;
+}
+.bx-wrapper .bx-pager.bx-default-pager a {
+    background: #666;
+    text-indent: -9999px;
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    outline: 0;
+    border-radius: 5px;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #0077b5; /* LinkedIn blue */
+    color: #fff;
+    padding: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group button {
+    padding: 10px 20px;
+    background-color: #0077b5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f5f5f5;
+}
+
+.imageGrid {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.imageGrid h2 {
+    color: #0077b5;
+}
+
+.imageContainer {
+    display: inline-block;
+    margin: 10px;
+}
+
+.imageContainer img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.imageContainer h3 {
+    margin-top: 5px;
+    font-size: 16px;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f6f8;
+    color: #333;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-7 {
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+
+.tab-content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#filterEmployee h1 {
+    color: #0077b5;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#filterEmployee p {
+    margin-bottom: 10px;
+}
+
+#filterEmployee input[type="text"],
+#filterEmployee input[type="number"],
+#filterEmployee select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#filterEmployee button {
+    padding: 10px 20px;
+    background-color: #0077b5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#filterEmployee button:hover {
+    background-color: #005689;
+}
+
+#filterEmployee button[type="reset"] {
+    background-color: #ccc;
+    color: #333;
+    margin-left: 10px;
+}
+
+#filterEmployee button[type="reset"]:hover {
+    background-color: #999;
+}
+.col-md-12 {
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f5f5f5;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.prev,
+.next {
+    padding: 10px 20px;
+    background-color: #0077b5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: #005689;
+}
+
+.imageGrid {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.imageGrid h1 {
+    color: #0077b5;
+    margin-bottom: 20px;
+}
+
+.imageContainer {
+    display: inline-block;
+    margin: 10px;
+}
+
+.imageContainer img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.imageContainer h3 {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+
+    </style>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <input type="checkbox" name="" id="checkbox">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="job.html#home">Home</a></li>
+                <li><a href="jobsearch.html">Jobs</a></li>
+                <li><a href="job.html#news">customers</a></li>
+                <li><a href="job.html#contact">Contact</a></li>
+                <li><a href="nn.html">Our partners</a></li>
+
+            </ul>
+            <a class="Login" href="Signup.php">Join with us</a>
+            <div class="logo">
+                WorkVista.lk
+            </div>
+            
+        </div>
+    </nav>
+    <div ng-app="myApp" ng-controller="customersCtrl" class="row">
+        <div class="col-md-7">		
+            <div class="tab-content col-md-12">			
+                <form id="filterEmployee" class="tab-pane fade active in">
+                    <h1>Filter Employee</h1>
+                    <p>Name : <input type="text" ng-model="searchtest.name"></p>
+                    <p>Designation : <input type="text" ng-model="searchtest.designation"></p>
+                    <p>Company Name : <input type="text" ng-model="searchtest.company.name"></p>
+                    <p>Rating(greater than) : <input type="number" ng-model="minrating"></p>
+                    <p>Check :
+                        <select ng-model="searchtest.action">
+                            <option value="">Select</option>
+                            <option value=true>True</option>
+                            <option value=false>False</option>
+                        </select>
+                    </p>
+                    <button type="reset" ng-click="resetFilter()">Reset</button>
+                </form>
+            </div>
+            <hr class="col-md-12">
+            <h1 class="col-md-12">Filtered/Paginated Table</h1>
+            <table id="eletable" ng-init="check=''" class="table table-responsive col-md-12">
+                <tr>
+                    <th ng-click="order('name')">Name</th>
+                    <th ng-click="order('designation')">Designation</th>
+                    <th ng-click="order('company.name')">Company Name</th>
+                    <th ng-click="order('rating')">Ratings</th>
+                    <th ng-click="order('action')">Check</th>
+                </tr>
+                <tr ng-repeat="client in filteredClients = (clients | orderBy:predicate:reverse | filter:searchtest | filter: greaterThan('rating') | limitTo:pagelimit:sstart)">
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.designation }}</td>
+                    <td>{{ client.company.name }}</td>
+                    <td>{{ client.rating }}</td>
+                    <td>{{ client.action }}</td>
+                </tr>
+            </table>
+            <button class="prev" ng-click="prev($event)" ng-disabled="startReach">Previous</button>
+            <button class="next" ng-click="next($event)" ng-disabled="endReach">Next</button>
+        </div>
+        <div class="col-md-5">
+            <h1 class="imageGrid">Avatar Grid</h1>
+            <div class="imageGrid">
+                <div class="imageContainer" ng-repeat="client in filteredClients">
+                    <img src="slider-image-1-1920x600.jpg" alt="Avatar">
+                    <h3>{{ client.name }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container container">
+            <div class="content_1">
+               <h1>WorkVista.lk</h1>
+                <p>The customer is at the heart of our<br>unique business model, which includes<br>design.</p>
+             
+              
+            </div>
+            <div class="content_2">
+                <h4>Dashboard</h4>
+                <a href="jobsearch.html">Jobs</a>
+                <a href="nn.html">Our partners</a>
+                <a href="signup.php">Login</a>
+                
+            </div>
+            <div class="content_3">
+                <h4>WorkVista.lk</h4>
+                <a href="#contact">Contact Us</a>
+                <a href="#news" target="_blank">customers</a>
+                <a href="Signup.php" target="_blank">Join</a>
+                
+            </div>
+            <div class="content_4">
+                <h4>NEWLETTER</h4>
+                <p>Stay updated with the latest job opportunities, <br> insights, and career tips on WorkVista.lk!</p>
+                <div class="f-mail">
+                    <input type="email" placeholder="Your Email">
+                    <i class='bx bx-envelope'></i>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="f-design">
+            <div class="f-design-txt container">
+                <p>Design and Code by Group 13</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('customersCtrl', function($scope, $http, $filter) {
+            $scope.clients = [{
+                name: 'Steven',
+                designation: 'Database Administrator',
+                company: {
+                    id: 3,
+                    name: 'Google'
+                },
+                rating: 100,
+                action: 'false',
+                avatar: 'avatar1.jpg'
+            }, {
+                name: 'Jim',
+                designation: 'Designer',
+                company: {
+                    id: 2,
+                    name: 'Facebook'
+                },
+                rating: 500,
+                action: 'true',
+                avatar: 'avatar2.jpg'
+            }, {
+                name: 'Michael',
+                designation: 'Front-End Developer',
+                company: {
+                    id: 1,
+                    name: 'Apple'
+                },
+                rating: 50,
+                action: 'true',
+                avatar: 'avatar3.jpg'
+            }, {
+                name: 'Josh',
+                designation: 'Network Engineer',
+                company: {
+                    id: 3,
+                    name: 'Google'
+                },
+                rating: 100,
+                action: 'true',
+                avatar: 'avatar4.jpg'
+            }, {
+                name: 'Ellie',
+                designation: 'Internet Marketing Engineer',
+                company: {
+                    id: 1,
+                    name: 'Apple'
+                },
+                rating: 1000,
+                action: 'true',
+                avatar: 'avatar5.jpg'
+            }];
+
+            var orderBy = $filter('orderBy');
+
+            $scope.order = function(predicate) {
+                $scope.predicate = predicate;
+                $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+                $scope.clients = orderBy($scope.clients, predicate, $scope.reverse);
+            };
+
+            $scope.greaterThan = function(prop) {
+                return function(item) {
+                    var minrating = $scope.minrating;
+                    if (minrating == undefined) minrating = 0;
+                    if (item[prop] * 1 >= minrating * 1) return true;
+                };
+            };
+
+            $scope.pagelimit = 3;
+            $scope.sstart = 0;
+            $scope.endReach = false;
+            $scope.startReach = true;
+
+            $scope.next = function() {
+                $scope.sstart += $scope.pagelimit;
+                $scope.startReach = false;
+                if (($scope.sstart + $scope.pagelimit) > $scope.clients.length - 1) {
+                    $scope.endReach = true;
+                }
+            };
+
+            $scope.prev = function() {
+                $scope.sstart -= $scope.pagelimit;
+                $scope.endReach = false;
+                if ($scope.sstart == 0) {
+                    $scope.startReach = true;
+                }
+            };
+
+            $scope.resetFilter = function() {
+                $scope.searchtest = {};
+                $scope.minrating = "";
+            };
+        });
+    </script>
+</body>
+</html>
